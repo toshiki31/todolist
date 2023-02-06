@@ -43,7 +43,7 @@ class TaskController extends Controller
         // バリデーション
         $validator = Validator::make($request->all(), [
             'task' => 'required | max:255',
-            'comment' => 'required | nullable',
+            'comment' => 'nullable',
             'seriousness' => 'required',
             'urgency' => 'required',
         ]);
