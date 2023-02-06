@@ -28,7 +28,9 @@
               @foreach ($tasks as $task)
               <tr class="hover:bg-grey-lighter">
                 <td class="py-4 px-6 border-b border-grey-light">
-                  <h3 class="text-left font-bold text-lg text-grey-dark">{{$task->task}}</h3>
+                  <a href="{{ route('task.show',$task->id)}}">
+                    <h3 class="text-left font-bold text-lg text-grey-dark">{{$task->task}}</h3>
+                  </a>
                   <div class="flex">
                     <!-- 更新ボタン -->
                     <!-- 削除ボタン -->

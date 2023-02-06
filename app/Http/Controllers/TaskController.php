@@ -43,7 +43,7 @@ class TaskController extends Controller
         // バリデーション
         $validator = Validator::make($request->all(), [
             'task' => 'required | max:255',
-            'comment' => 'required | nullable',
+            'comment' => 'nullable',
             'seriousness' => 'required',
             'urgency' => 'required',
         ]);
@@ -68,7 +68,8 @@ class TaskController extends Controller
      */
     public function show($id)
     {
-        //
+        $task = Task::find($id);
+        return view('task.show', compact('task')); 
     }
 
     /**
