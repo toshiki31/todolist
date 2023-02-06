@@ -15,8 +15,8 @@ class TaskController extends Controller
      */
     public function index()
     {
-        //
-        $tasks = [];
+        //getAllOrderByUpdated_at()はModels\Taskで定義
+        $tasks = Task::getAllOrderByUpdated_at();
         return view('task.index',compact('tasks'));
     }
 
@@ -39,7 +39,25 @@ class TaskController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //dd($request);
+        // バリデーション
+        $validator = Validator::make($request->all(), [
+            'task' => 'required | max:255',
+            'comment' => 'required | nullable',
+            'seriousness' => 'required',
+            'urgency' => 'required',
+        ]);
+        // バリデーション:エラー
+        if ($validator->fails()) {
+            return redirect()
+            ->route('task.create')
+            ->withInput()
+            ->withErrors($validator);
+        }
+
+        $result = Task::create($request->all());
+        return redirect()->route('task.index');
+
     }
 
     /**
