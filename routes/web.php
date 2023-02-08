@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TaskController;
+use App\Http\Controllers\AccomplishController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,6 +17,8 @@ use App\Http\Controllers\TaskController;
 
 // resourceでルーティングを一括定義
 Route::resource('task', TaskController::class);
+
+Route::resource('accomplish', AccomplishController::class);
 
 Route::get('/', function () {
     return view('welcome');
