@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Task;
+use DB;
 
 class AccomplishController extends Controller
 {
@@ -32,7 +34,7 @@ class AccomplishController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store($id)
     {
         //
     }
@@ -45,7 +47,14 @@ class AccomplishController extends Controller
      */
     public function show($id)
     {
-        //
+        //$idはtaskテーブルのid
+        $flag=Task::where('id',$id)->value('isfinished');
+        if($flag==false){
+            Task::where('id',$id)->update(['isfinished'=>1]);
+        }else{
+            Task::where('id',$id)->update(['isfinished'=>0]);
+        }
+        return redirect()->route('task.index');
     }
 
     /**
