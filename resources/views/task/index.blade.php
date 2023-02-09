@@ -37,7 +37,7 @@
                     <!-- 達成/未達成ボタン -->
                     @if(($task->isfinished) == False)
                       <!-- 未達成ボタン ボタン -->
-                      <form action="{{ route('accomplish.store', $task->id) }}" method="POST" class="text-left">
+                      <form action="{{ route('accomplish.show', $task->id) }}" method="GET" class="text-left">
                         @csrf
                         <button type="submit" class="bg-yellow-500 font-medium text-sm text-white mx-2 py-1 px-2 rounded-full">
                           未達成
@@ -45,7 +45,7 @@
                       </form>
                     @else
                       <!-- 達成 ボタン -->
-                        <form action="{{ route('accomplish.store', $task->id) }}" method="POST" class="text-left">
+                        <form action="{{ route('accomplish.show', $task->id) }}" method="GET" class="text-left">
                           @csrf
                           <button type="submit" class="bg-yellow-500 font-medium text-sm text-white mx-2 py-1 px-2 rounded-full">
                             達成済み
