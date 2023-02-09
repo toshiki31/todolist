@@ -115,4 +115,16 @@ class TaskController extends Controller
     {
         //
     }
+
+    public function mypage(){
+        // 達成済みのタスク数を取得
+        $count = User::query()
+        ->find(Auth::user()->id)
+        ->userTasks()
+        ->where('isfinished', 1)
+        ->count();
+
+        //dd($count);
+        return view('task.mypage',compact('count'));
+    }
 }

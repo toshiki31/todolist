@@ -17,7 +17,7 @@ use App\Http\Controllers\AccomplishController;
 
 // resourceでルーティングを一括定義
 Route::group(['middleware' => 'auth'], function () {
-    //Route::get('/task/mypage',[TaskController::class, 'mydata'])->name('task.mydata');
+    Route::get('/task/mypage',[TaskController::class, 'mypage'])->name('task.mypage');
     Route::resource('task', TaskController::class);
 });
 
