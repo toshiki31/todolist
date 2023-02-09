@@ -28,12 +28,30 @@
               @foreach ($tasks as $task)
               <tr class="hover:bg-grey-lighter">
                 <td class="py-4 px-6 border-b border-grey-light">
-                  <a href="{{ route('task.show',$task->id)}}">
-                    <h3 class="text-left font-bold text-lg text-grey-dark">{{$task->task}}</h3>
-                  </a>
-                  <div class="flex">
+                  <div class="flex justify-between">
+                    <a href="{{ route('task.show',$task->id)}}">
+                      <h3 class="font-bold text-lg text-grey-dark">{{$task->task}}</h3>
+                    </a>
                     <!-- 更新ボタン -->
                     <!-- 削除ボタン -->
+                    <!-- 達成/未達成ボタン -->
+                    @if(($task->isfinished) == False)
+                      <!-- 未達成ボタン ボタン -->
+                      <form action="{{ route('accomplish.store', $task->id) }}" method="POST" class="text-left">
+                        @csrf
+                        <button type="submit" class="bg-yellow-500 font-medium text-sm text-white mx-2 py-1 px-2 rounded-full">
+                          未達成
+                        </button>
+                      </form>
+                    @else
+                      <!-- 達成 ボタン -->
+                        <form action="{{ route('accomplish.store', $task->id) }}" method="POST" class="text-left">
+                          @csrf
+                          <button type="submit" class="bg-yellow-500 font-medium text-sm text-white mx-2 py-1 px-2 rounded-full">
+                            達成済み
+                          </button>
+                        </form>
+                    @endif
                   </div>
                 </td>
               </tr>
