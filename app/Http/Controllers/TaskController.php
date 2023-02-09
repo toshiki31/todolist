@@ -16,7 +16,7 @@ class TaskController extends Controller
     public function index()
     {
         //getAllOrderByUpdated_at()はModels\Taskで定義
-        $tasks = Task::getAllOrderByUpdated_at();
+        $tasks = Task::task_sort();
         return view('task.index',compact('tasks'));
     }
 
@@ -39,7 +39,7 @@ class TaskController extends Controller
      */
     public function store(Request $request)
     {
-        //dd($request);
+        // dd($request);
         // バリデーション
         $validator = Validator::make($request->all(), [
             'task' => 'required | max:255',

@@ -17,8 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string("task");
             $table->text("comment")->nullable();
-            $table->string("seriousness");
-            $table->string("urgency");
+            $table->integer("seriousness");
+            $table->integer("urgency");
             $table->boolean("isfinished")->default(0);
             $table->timestamps();
         });
