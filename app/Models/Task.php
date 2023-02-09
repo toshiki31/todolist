@@ -19,4 +19,12 @@ class Task extends Model
     {
         return self::orderBy('updated_at', 'desc')->get();
     }
+
+    public static function task_sort(){
+        // isfinished->updated_at
+        return self::orderBy('isfinished', 'asc')
+        ->orderBy('urgency', 'asc')
+        ->orderBy('seriousness', 'asc')
+        ->get();
+    }
 }
