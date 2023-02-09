@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Validator;
 use App\Models\Task;
+use App\Models\User;
+use Auth;
 
 class TaskController extends Controller
 {
@@ -16,7 +18,14 @@ class TaskController extends Controller
     public function index()
     {
         //getAllOrderByUpdated_at()はModels\Taskで定義
-        $tasks = Task::task_sort();
+        //$tasks = Task::task_sort();
+        $tasks = User::query()
+        ->find(Auth::user()->id)
+        ->userTasks()
+        ->orderBy('isfinished', 'asc')
+        ->orderBy('urgency', 'asc')
+        ->orderBy('seriousness', 'asc')
+        ->get();
         return view('task.index',compact('tasks'));
     }
 
@@ -54,8 +63,9 @@ class TaskController extends Controller
             ->withInput()
             ->withErrors($validator);
         }
-
-        $result = Task::create($request->all());
+        
+        $data = $request->merge(['user_id'=>Auth::user()->id])->all();
+        $result = Task::create($data);
         return redirect()->route('task.index');
 
     }
@@ -104,5 +114,17 @@ class TaskController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function mypage(){
+        // 達成済みのタスク数を取得
+        $count = User::query()
+        ->find(Auth::user()->id)
+        ->userTasks()
+        ->where('isfinished', 1)
+        ->count();
+
+        //dd($count);
+        return view('task.mypage',compact('count'));
     }
 }
