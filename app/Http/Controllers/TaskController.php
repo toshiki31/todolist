@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Validator;
 use App\Models\Task;
+use App\Models\Rank;
 use App\Models\User;
 use Auth;
 
@@ -123,8 +124,19 @@ class TaskController extends Controller
         ->userTasks()
         ->where('isfinished', 1)
         ->count();
-
         //dd($count);
-        return view('task.mypage',compact('count'));
+        
+        $rank=round($count/10);
+        // dd($rank);
+        $rankCheck=Rank::where('rank',$count)->exists();
+        // dd($rankCheck);
+        if($rankCheck){
+            $phrase=Rank::where('rank',$rank)->value('phrase');
+        }else{
+            $phrase=Rank::orderBy('rank','desc')->value('phrase');
+        }
+
+        // dd($phrase);
+        return view('task.mypage',compact('count','phrase'));
     }
 }

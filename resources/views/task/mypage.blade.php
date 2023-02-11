@@ -27,7 +27,10 @@
 
         <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg my-2">
             <div class="p-6 bg-white border-b border-gray-200">
-                <div class="py-2">02</div>
+                <div class="py-2">
+                    {{'あなたは...'}}
+                    <h2 class="font-bold text-xl text-gray-800 leading-tight">{{$phrase}}</h2>
+                </div>
             </div>
         </div>
 
