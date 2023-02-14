@@ -5,8 +5,8 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
-                    <a href="{{ route('dashboard') }}">
-                            <img class="block h-9 w-auto fill-current" src="/images/logo.png">
+                    <a href="{{ route('task.index') }}">
+                        <img class="block h-9 w-auto fill-current" src="/images/logo.png">
                     </a>
                     <!-- 🔽 一覧ページへのリンクを追加 -->
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
