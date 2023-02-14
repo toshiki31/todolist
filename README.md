@@ -1,4 +1,4 @@
-<p align="center"><img class="block h-20 w-auto fill-current" src="/images/logo.png"></p>
+<img class="block h-20 w-auto fill-current" src="public/images/logo.png">
 
 
 ## アプリについて
