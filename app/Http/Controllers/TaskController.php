@@ -136,7 +136,9 @@ class TaskController extends Controller
             $phrase=Rank::orderBy('rank','desc')->value('phrase');
         }
 
+        $cicle_state="good";
+
         // dd($phrase);
-        return view('task.mypage',compact('count','phrase'));
+        return view('task.mypage',compact('cicle_state','count','phrase'));
     }
 }

@@ -17,6 +17,12 @@
   <div class="py-12">
     <div class="max-w-7xl mx-auto sm:w-10/12 md:w-8/10 lg:w-8/12">
         <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg my-2">
+            <div id="graph" class="flex justify-center">
+                <canvas id='canvas' width="500" height="400" data="good"></canvas>
+            </div>
+        </div>
+
+        <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg my-2">
             <div class="p-6 bg-white border-b border-gray-200">
                 <div class="py-2">
                     {{'あなたが達成したタスク'}}
@@ -34,7 +40,18 @@
             </div>
         </div>
 
+        
+
     </div>
   </div>
+  <script>
+            // 受け取った変数をjsに渡す
+            // コミットの数（仮置き）
+            const num = `{{ $count }}`;
+            // サイクルの状態（仮置き）
+            const cicle_state = `{{ $cicle_state }}`;
+        </script>
+        <script src="{{ asset('/js/app.js') }}"></script>
+        <script src="{{ asset('/js/graph.js') }}"></script>
 </x-app-layout>
 
