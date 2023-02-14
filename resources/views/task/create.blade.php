@@ -16,27 +16,27 @@
             <!-- Task -->
             <div class="flex flex-col mb-4">
               <label class="mb-2 uppercase font-bold text-lg text-grey-darkest" for="task">Task</label>
-              <input class="border py-2 px-3 text-grey-darkest" type="text" name="task" id="task">
+              <input class="border py-2 px-3 text-grey-darkest focus:border-yellow-300 focus:ring-yellow-300" type="text" name="task" id="task">
             </div>
             <!-- Comment -->
             <div class="flex flex-col mb-4">
               <label class="mb-2 uppercase font-bold text-lg text-grey-darkest" for="comment">Comment</label>
-              <input class="border py-2 px-3 text-grey-darkest" type="text" name="comment" id="comment">
+              <input class="border py-2 px-3 text-grey-darkest focus:border-yellow-300 focus:ring-yellow-300" type="text" name="comment" id="comment">
             </div>
             <!-- Seriousness -->            
             <div class="flex flex-col mb-4">
               <label class="mb-2 uppercase font-bold text-lg text-grey-darkest" for="seriousness">Seriousness</label>
               <div class="flex justify-between">
                 <div class="flex items-center mr-4">
-                  <input id="seriousness-radio" type="radio" value="1" name="seriousness" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                  <input id="seriousness-radio" type="radio" value="1" name="seriousness" class="w-4 h-4 text-yellow-400 bg-gray-100 border-gray-300 focus:ring-yellow-300 dark:focus:ring-yellow-400 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
                   <label for="seriousness-radio" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">High</label>
                 </div>
                 <div class="flex items-center mr-4">
-                  <input id="seriousness-2-radio" type="radio" value="2" name="seriousness" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                  <input id="seriousness-2-radio" type="radio" value="2" name="seriousness" class="w-4 h-4 text-yellow-400 bg-gray-100 border-gray-300 focus:ring-yellow-300 dark:focus:ring-yellow-400 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
                   <label for="seriousness-2-radio" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Medium</label>
                 </div>
                 <div class="flex items-center mr-4">
-                  <input id="seriousness-3-radio" type="radio" value="3" name="seriousness" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                  <input id="seriousness-3-radio" type="radio" value="3" name="seriousness" class="w-4 h-4 text-yellow-400 bg-gray-100 border-gray-300 focus:ring-yellow-300 dark:focus:ring-yellow-400 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
                   <label for="seriousness-3-radio" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Low</label>
                 </div>
               </div>
@@ -46,15 +46,15 @@
               <label class="mb-2 uppercase font-bold text-lg text-grey-darkest" for="Urgency">Urgency</label>
               <div class="flex justify-between">
                 <div class="flex items-center mr-4">
-                  <input id="urgency-radio" type="radio" value="1" name="urgency" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                  <input id="urgency-radio" type="radio" value="1" name="urgency" class="w-4 h-4 text-yellow-400 bg-gray-100 border-gray-300 focus:ring-yellow-300 dark:focus:ring-yellow-400 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
                   <label for="urgency-radio" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">High</label>
                 </div>
                 <div class="flex items-center mr-4">
-                  <input id="urgency-2-radio" type="radio" value="2" name="urgency" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                  <input id="urgency-2-radio" type="radio" value="2" name="urgency" class="w-4 h-4 text-yellow-400 bg-gray-100 border-gray-300 focus:ring-yellow-300 dark:focus:ring-yellow-400 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
                   <label for="urgency-2-radio" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Medium</label>
                 </div>
                 <div class="flex items-center mr-4">
-                  <input id="urgency-3-radio" type="radio" value="3" name="urgency" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                  <input id="urgency-3-radio" type="radio" value="3" name="urgency" class="w-4 h-4 text-yellow-400 bg-gray-100 border-gray-300 focus:ring-yellow-300 dark:focus:ring-yellow-400 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
                   <label for="urgency-3-radio" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Low</label>
                 </div>
               </div>
