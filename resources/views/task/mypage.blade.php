@@ -26,7 +26,7 @@
             <div class="p-6 bg-white border-b border-gray-200">
                 <div class="py-2">
                     {{'あなたが達成したタスク'}}
-                    <h2 class="font-bold text-xl text-gray-800 leading-tight">{{$count}}個</h2>
+                    <h2 class="font-bold text-xl text-gray-800 leading-tight">{{$sum}}個</h2>
                 </div>
             </div>
         </div>

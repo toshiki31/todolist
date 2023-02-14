@@ -9,6 +9,49 @@ use App\Models\Rank;
 use App\Models\User;
 use Auth;
 
+function devide_time($datetime){
+    // dd($datetime);
+    $year=mb_substr($datetime,0,4);
+    $month=mb_substr($datetime,5,2);
+    $day=mb_substr($datetime,8,2);
+    $hour=mb_substr($datetime,11,2);
+    $min=mb_substr($datetime,14,2);
+    $sec=mb_substr($datetime,17,2);
+    $devided_time["year"]=$year;
+    $devided_time["month"]=$month;
+    $devided_time["day"]=$day;
+    $devided_time["hour"]=$hour;
+    $devided_time["min"]=$min;
+    $devided_time["sec"]=$sec;
+    return $devided_time;
+}
+
+// 今日のタスク完了数を取得
+function get_today_finished_tasks(){
+    $finished_tasks=Task::where('isfinished',1)->orderBy('updated_at','desc')->get();
+    $today=date("Y-m-d H:i:s");
+    // dd($today);
+
+    $devided_time=devide_time($today);
+    $today_tasks=array();
+    foreach($finished_tasks as $finished_task){
+
+        $finished_at=devide_time($finished_task->updated_at);
+
+        if($devided_time['year']===$finished_at['year']){
+            if($devided_time['month']===$finished_at['month']){
+                if($devided_time['day']===$finished_at['day']){
+                    $today_tasks[]=$finished_task;
+                }
+            }
+        }
+    }
+    // dd($today_tasks);
+    $count=count($today_tasks);
+    // dd($count);
+    return $count;
+}
+
 class TaskController extends Controller
 {
     /**
@@ -119,16 +162,17 @@ class TaskController extends Controller
 
     public function mypage(){
         // 達成済みのタスク数を取得
-        $count = User::query()
+        $sum = User::query()
         ->find(Auth::user()->id)
         ->userTasks()
         ->where('isfinished', 1)
         ->count();
-        //dd($count);
-        
-        $rank=round($count/10);
+        // dd($sum);
+        $rank=round($sum/10, 1);
         // dd($rank);
-        $rankCheck=Rank::where('rank',$count)->exists();
+        $rank=(int) $rank;
+        // dd($rank);
+        $rankCheck=Rank::where('rank',$rank)->exists();
         // dd($rankCheck);
         if($rankCheck){
             $phrase=Rank::where('rank',$rank)->value('phrase');
@@ -136,9 +180,19 @@ class TaskController extends Controller
             $phrase=Rank::orderBy('rank','desc')->value('phrase');
         }
 
-        $cicle_state="good";
+        $count=get_today_finished_tasks();
+        
+        if($count>=5){
+            $cicle_state="excellent";
+        }elseif($count>=3){
+            $cicle_state="great";
+        }elseif($count>=1){
+            $cicle_state="good";
+        }else{
+            $cicle_state="ok";
+        }
 
         // dd($phrase);
-        return view('task.mypage',compact('cicle_state','count','phrase'));
+        return view('task.mypage',compact('count','cicle_state','sum','phrase'));
     }
 }

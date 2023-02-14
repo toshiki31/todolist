@@ -14,26 +14,34 @@ let H = h / 2;
 let W = w / 2;
 let arrow_s_w = 0;
 let arrow_s_h = 0;
-let speed = 2;
+let speed = `${num}`;
 // 円の中に簡単な情報を表示
 // 総数
 context.beginPath();
 context.font = "13pt Arial";
-context.fillText("今日の達成タスク数", W - 75, H - 100);
+var text = "今日の達成タスク数";
+var textWidth = context.measureText(text).width;
+context.fillText("今日の達成タスク数", (w - textWidth) / 2, H - 100);
 context.fill();
 
 context.beginPath();
 context.font = "50pt Arial";
-context.fillText(`${num}回`, W - 50, H - 30);
+var text = `${num}回`;
+var textWidth = context.measureText(text).width;
+context.fillText(`${num}回`, (w - textWidth) / 2, H - 30);
 context.fill();
 // サイクル速度
 context.beginPath();
 context.font = "13pt Arial";
-context.fillText("サイクルの状態", W - 60, H + 10);
+var text = "今日の評価";
+var textWidth = context.measureText(text).width;
+context.fillText("今日の評価", (w - textWidth) / 2, H + 10);
 context.fill();
 context.beginPath();
 context.font = "50pt Arial";
-context.fillText(`${cicle_state}`, W - 75, H + 70);
+var text = `${cicle_state}`;
+var textWidth = context.measureText(text).width;
+context.fillText(`${cicle_state}`, (w - textWidth) / 2, H + 70);
 
 context.stroke();
 let r = 100; let g = 60; let b = 200;
