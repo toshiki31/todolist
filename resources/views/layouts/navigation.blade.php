@@ -6,8 +6,7 @@
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
-                        <!-- <x-application-logo class="block h-9 w-auto fill-current text-gray-800" /> -->
-                            <img class="block h-9 w-auto fill-current" src="/images/logo3.jpg">
+                            <img class="block h-9 w-auto fill-current" src="/images/logo.png">
                     </a>
                     <!-- 🔽 一覧ページへのリンクを追加 -->
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
