@@ -4,6 +4,8 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\AccomplishController;
+use App\Http\Controllers\LineLoginController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -38,3 +40,10 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/linelogin', 'App\Http\Controllers\LineLoginController@lineLogin')->name('linelogin');
+Route::get('/callback', 'App\Http\Controllers\LineLoginController@callback')->name('callback');
