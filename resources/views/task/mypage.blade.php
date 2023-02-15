@@ -45,13 +45,13 @@
     </div>
   </div>
   <script>
-            // 受け取った変数をjsに渡す
-            // コミットの数（仮置き）
-            const num = `{{ $count }}`;
-            // サイクルの状態（仮置き）
-            const cicle_state = `{{ $cicle_state }}`;
-        </script>
-        <script src="{{ asset('/js/app.js') }}"></script>
-        <script src="{{ asset('/js/graph.js') }}"></script>
+        // 受け取った変数をjsに渡す
+        // コミットの数（仮置き）
+        const num = `{{ $count }}`;
+        // サイクルの状態（仮置き）
+        const cicle_state = `{{ $cicle_state }}`;
+    </script>
+    <script src="{{ asset('/js/app.js') }}"></script>
+    <script src="{{ asset('/js/graph.js') }}"></script>
 </x-app-layout>
 
